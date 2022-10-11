@@ -29,10 +29,24 @@ public class Requests {
         requestSpec();
         Response response = given()
                 .spec(requestSpec)
-                .when()
+        .when()
                 .get(url.FILM + filmNumber)
                 .prettyPeek()
-                .then()
+        .then()
+                .extract()
+                .response();
+        return response;
+    }
+
+    public Response getFilmByName(String filmName) {
+        requestSpec();
+        Response response = given()
+                .spec(requestSpec)
+                .queryParam("search", filmName)
+        .when()
+                .get(url.FILM)
+                .prettyPeek()
+        .then()
                 .extract()
                 .response();
         return response;
@@ -80,6 +94,42 @@ public class Requests {
                 .spec(requestSpec)
                 .when()
                 .get(url.STARSHIPS + shipsNumber)
+                .then()
+                .extract()
+                .response();
+        return response;
+    }
+
+    public Response searchFilm(String filmName) {
+        requestSpec();
+        Response response = given()
+                .spec(requestSpec)
+                .queryParam("search", filmName)
+                .when()
+                .get(url.FILM)
+                .then()
+                .extract()
+                .response();
+        return response;
+    }
+
+    public Response searchCharacter(String characterName) {
+        requestSpec();
+        Response response = given()
+                .spec(requestSpec)
+                .queryParam("search", characterName)
+                .when()
+                .get(url.PEOPLE)
+                .then()
+                .extract()
+                .response();
+        return response;
+    }
+
+    public Response getAPIURL(String url) {
+        Response response = given()
+                .when()
+                .get(url)
                 .then()
                 .extract()
                 .response();

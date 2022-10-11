@@ -12,13 +12,14 @@
         <maven.compiler.source>12</maven.compiler.source>
         <maven.compiler.target>12</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <rest-assured.version>5.1.1</rest-assured.version>
+        <rest-assured.version>5.2.0</rest-assured.version>
         <xml-path.version>${rest-assured.version}</xml-path.version>
         <json-schema-validator.version>${rest-assured.version}</json-schema-validator.version>
         <testng.version>7.6.1</testng.version>
         <log4j-core.version>2.18.0</log4j-core.version>
         <log4j-api.version>${log4j-core.version}</log4j-api.version>
         <json.version>20220320</json.version>
+        <hamcrest.version>2.2</hamcrest.version>
     </properties>
     <dependencies>
         <dependency>
@@ -42,7 +43,7 @@
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>${testng.version}</version>
-            <scope>test</scope>
+<!--            <scope>test</scope>-->
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
@@ -58,6 +59,12 @@
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
             <version>${json.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest</artifactId>
+            <version>${hamcrest.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 </project>

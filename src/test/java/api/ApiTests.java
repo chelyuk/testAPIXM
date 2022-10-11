@@ -3,74 +3,50 @@ package api;
 
 import base.BaseTest;
 import io.restassured.response.Response;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.json.JSONObject;
 import org.testng.annotations.Test;
+import java.util.ArrayList;
 
 import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.fail;
 
 
 public class ApiTests extends BaseTest {
 
-    static Logger logger = LogManager.getLogger(ApiTests.class);
+    String FILM_NAME = "A New Hope";
+    String CHARACTER_NAME = "Biggs Darklighter";
+    String STARSHIP_CLASS = "Starfighter";
+    String PILOT = "Luke Skywalker";
 
     @Test(groups = "people")
     public void lukeSkywalkerTest() {
-        Response getLuke = request.getPeople("/1");
+        Response getLuke = request.searchCharacter(PILOT);
         assertEquals(getLuke.getStatusCode(), 200);
-        String name = getLuke.path("name");
-        assertEquals(name.toLowerCase(), "luke skywalker");
-
-        String lukesHomeworld = getLuke.path("homeworld");
-        logger.warn("homeworld: " + lukesHomeworld);
-        String planet = common.getRegMatch(lukesHomeworld);
-
-        Response getPlanet = request.getPlanets(planet);
-        String pn =getPlanet.path("name");
-        assertEquals(pn, "Tatooine");
+        assertEquals(getLuke.path("results.name[0]"), PILOT);
+        Response getHomePlanet = request.getAPIURL(getLuke.path("results.homeworld[0]"));
+        assertEquals(getHomePlanet.getStatusCode(), 200);
+        assertEquals(getHomePlanet.path("name"), "Tatooine");
     }
 
     @Test(groups = "people")
     public void bobaFettTest() {
-        String character = "boba fett";
-        String expectedPlanet = "kamino";
-        JSONObject searchResult = common.searchForCharacter(character);
-        if (searchResult.isEmpty()) {
-            fail("Character Not Found");
-        } else {
-            String homeUrl = searchResult.get("homeworld").toString();
-            Response getPlanet = request.getPlanets(common.getRegMatch(homeUrl));
-            String planetName = getPlanet.path("name");
-            assertEquals(planetName.toLowerCase(), expectedPlanet);
-        }
+        Response getBoba = request.searchCharacter("Boba Fett");
+        assertEquals(getBoba.getStatusCode(), 200);
+        Response getHomePlanet = request.getAPIURL(getBoba.path("results.homeworld[0]"));
+        assertEquals(getHomePlanet.getStatusCode(), 200);
+        assertEquals(getHomePlanet.path("name"), "Kamino");
     }
 
     @Test(groups = "film")
     public void jubbaTheHuttTest() {
-        String character = "jabba desilijic tiure";
-        String planet = "nal hutta";
-        String film1 = "the fantom menace";
-        JSONObject searchResult = common.searchForCharacter(character);
-
-        Object waahh = searchResult.getJSONArray("films").get(0);
-        logger.warn(waahh);
-
-        if (searchResult.isEmpty()) {
-            fail("Character Not Found");
-        } else {
-            String homeUrl = searchResult.get("homeworld").toString();
-            Response getPlanet = request.getPlanets(common.getRegMatch(homeUrl));
-            String planetName = getPlanet.path("name").toString().toLowerCase();
-            logger.warn("planetName" + planetName);
-            assertEquals(planetName, planet);
-
-            String firstFilm = searchResult.getJSONArray("films").get(0).toString();
-            Response getFilms = request.getFilms(common.getRegMatch(firstFilm));
-            String filmsTitle = getFilms.path("title").toString().toLowerCase();
-            logger.warn("firstFilm: " + firstFilm);
-            assertEquals(filmsTitle, film1);
-        }
+        Response getJabba = request.searchCharacter("Jabba Desilijic Tiure");
+        assertEquals(getJabba.getStatusCode(), 200);
+        Response getHomePlanet = request.getAPIURL(getJabba.path("results.homeworld[0]"));
+        assertEquals(getHomePlanet.getStatusCode(), 200);
+        assertEquals(getHomePlanet.path("name"), "Nal Hutta");
+        ArrayList films = getJabba.path("results.films[0]");
+//        TODO: find the film in which Jabba appears at first, based on release_date
+//        for (Object film: films) {
+//            Response release_date = request.getAPIURL((String) film);
+//            Date date = release_date.path("release_date[0]");
+//        }
     }
 }
