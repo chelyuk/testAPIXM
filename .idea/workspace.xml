@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68c94789-85b7-4dbf-8036-d90f8ef7e9f2" name="Changes" comment="initial commit">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/api/OldestPersonTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/api/VaderTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="68c94789-85b7-4dbf-8036-d90f8ef7e9f2" name="Changes" comment="add tests for Vader and oldest character">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/api/Requests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/api/Requests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/api/ApiTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/api/ApiTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/api/TaskTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/api/TaskTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/api/XMTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/api/XMTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,12 +26,26 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;chelyuk&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="08e9b8d8-d1d8-448f-9958-349f48fce8bf" />
+        <option name="url" value="https://github.com/chelyuk/testAPIXM.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2EFhD5rEyJBacyVVxaNRkPW50ZT" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -41,20 +54,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/archa/IdeaProjects/testAPIXM",
-    "project.structure.last.edited": "Problems",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.5091954",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/archa/IdeaProjects/testAPIXM&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.5091954&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="TestNG.api">
+}</component>
+  <component name="RunManager" selected="TestNG.ApiTests">
     <configuration name="ApiTests" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="testAPIXM" />
       <extension name="coverage">
@@ -143,10 +156,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.ApiTests" />
         <item itemvalue="TestNG.api" />
         <item itemvalue="TestNG.OldestPersonTest.oldestPersonTest" />
         <item itemvalue="TestNG.VaderTest.vaderTest" />
-        <item itemvalue="TestNG.ApiTests" />
         <item itemvalue="TestNG.XMTest" />
       </list>
     </recent_temporary>
@@ -160,6 +173,15 @@
       <option name="presentableId" value="Default" />
       <updated>1662197117166</updated>
     </task>
+    <task id="LOCAL-00001" summary="add tests for Vader and oldest character">
+      <option name="closed" value="true" />
+      <created>1698602498915</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1698602498915</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -175,7 +197,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
+    <MESSAGE value="add tests for Vader and oldest character" />
+    <option name="LAST_COMMIT_MESSAGE" value="add tests for Vader and oldest character" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

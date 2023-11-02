@@ -3,6 +3,7 @@ package api;
 
 import base.BaseTest;
 import io.restassured.response.Response;
+import org.apache.http.HttpStatus;
 import org.testng.annotations.Test;
 import java.util.ArrayList;
 
@@ -19,28 +20,28 @@ public class ApiTests extends BaseTest {
     @Test(groups = "people")
     public void lukeSkywalkerTest() {
         Response getLuke = request.searchCharacter(PILOT);
-        assertEquals(getLuke.getStatusCode(), 200);
+        assertEquals(getLuke.getStatusCode(), HttpStatus.SC_OK);
         assertEquals(getLuke.path("results.name[0]"), PILOT);
         Response getHomePlanet = request.getAPIURL(getLuke.path("results.homeworld[0]"));
-        assertEquals(getHomePlanet.getStatusCode(), 200);
+        assertEquals(getHomePlanet.getStatusCode(), HttpStatus.SC_OK);
         assertEquals(getHomePlanet.path("name"), "Tatooine");
     }
 
     @Test(groups = "people")
     public void bobaFettTest() {
         Response getBoba = request.searchCharacter("Boba Fett");
-        assertEquals(getBoba.getStatusCode(), 200);
+        assertEquals(getBoba.getStatusCode(), HttpStatus.SC_OK);
         Response getHomePlanet = request.getAPIURL(getBoba.path("results.homeworld[0]"));
-        assertEquals(getHomePlanet.getStatusCode(), 200);
+        assertEquals(getHomePlanet.getStatusCode(), HttpStatus.SC_OK);
         assertEquals(getHomePlanet.path("name"), "Kamino");
     }
 
     @Test(groups = "film")
     public void jubbaTheHuttTest() {
         Response getJabba = request.searchCharacter("Jabba Desilijic Tiure");
-        assertEquals(getJabba.getStatusCode(), 200);
+        assertEquals(getJabba.getStatusCode(), HttpStatus.SC_OK);
         Response getHomePlanet = request.getAPIURL(getJabba.path("results.homeworld[0]"));
-        assertEquals(getHomePlanet.getStatusCode(), 200);
+        assertEquals(getHomePlanet.getStatusCode(), HttpStatus.SC_OK);
         assertEquals(getHomePlanet.path("name"), "Nal Hutta");
         ArrayList films = getJabba.path("results.films[0]");
 //        TODO: find the film in which Jabba appears at first, based on release_date

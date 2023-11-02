@@ -21,7 +21,7 @@ public class Requests {
                 .build();
     }
 
-    public Response getFilms(String filmNumber) {
+    public Response getFilm(String filmNumber) {
         requestSpec();
         return given()
                 .spec(requestSpec)
@@ -46,7 +46,7 @@ public class Requests {
                 .response();
     }
 
-    public Response getPlanets(String planetNumber) {
+    public Response getPlanet(String planetNumber) {
         requestSpec();
         return given()
                 .spec(requestSpec)
@@ -79,7 +79,7 @@ public class Requests {
                 .response();
     }
 
-    public Response getStarships(String shipsNumber) {
+    public Response getStarship(String shipsNumber) {
         requestSpec();
         return given()
                 .spec(requestSpec)
